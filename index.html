@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/mobile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <header>
+          <h1>TODO</h1>
+          <input id="theme" type="checkbox" name="theme" />
+        </header>
+        <section class="input">
+          <div class="box">
+            <input
+              id="checkmark"
+              class="checkmark"
+              type="checkbox"
+              name="checkbox"
+            />
+            <input id="input" type="text" placeholder="Create a new todo..." />
+          </div>
+        </section>
+        <section class="todo-list">
+          <div class="tasks">
+            <!-- <div class="box">
+            <input class="checkmark" type="checkbox" name="checkbox">
+            <p>Some task</p>
+            <button class="cross">
+              <img src="./images/icon-cross.svg" alt="Cross">
+            </button>
+          </div> -->
+          </div>
+          <footer>
+            <div class="counter">
+              <p id="task-count"></p>
+            </div>
+            <div class="filter">
+              <input type="radio" name="filter" id="filter-all" checked />
+              <label for="filter-all">All</label>
+              <input type="radio" name="filter" id="filter-active" />
+              <label for="filter-active">Active</label>
+              <input type="radio" name="filter" id="filter-completed" />
+              <label for="filter-completed">Completed</label>
+            </div>
+            <div class="clear">
+              <button id="btn-clear">Clear Completed</button>
+            </div>
+          </footer>
+        </section>
+      </div>
+    </main>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/theme.js"></script>
+  </body>
+</html>
