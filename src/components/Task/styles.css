@@ -35,7 +35,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    visibility: visible;
+    visibility: hidden;
     padding: .8rem;
     justify-self: right;
 }
