@@ -1,0 +1,132 @@
+:root {
+    --bright-blue: hsl(220, 98%, 61%);
+    --check-background: linear-gradient(90deg , hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --bg-color: hsl(235, 21%, 11%);
+    --bg-color-desaturated: hsl(235, 24%, 19%);
+    --font-color: hsl(234, 39%, 85%);
+    --font-color-hover: hsl(236, 33%, 92%);
+    --font-color-second: hsl(233, 14%, 35%);
+    --font-color-second-hover: hsl(234, 11%, 52%);
+    --font-color-checked: hsl(233, 14%, 35%);
+    --border-color: hsl(237, 14%, 26%);
+
+    font-size: 62.5%;
+}
+
+[data-theme="light"] {
+    --bg-color-desaturated: hsl(0, 0%, 98%);
+    --font-color: hsl(235, 19%, 35%);
+    --font-color-hover: hsl(233, 14%, 35%);
+    --font-color-second: hsl(236, 9%, 61%);
+    --font-color-second-hover: hsl(233, 14%, 35%);
+    --font-color-checked: hsl(233, 11%, 84%);
+    --border-color: hsl(236, 33%, 92%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+label {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    background-color: var(--bg-color);
+    background-image: url("./assets/bg-desktop-dark.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+body.light {
+    background-color: hsl(236, 33%, 92%);
+    background-image: url("./assets/bg-desktop-light.jpg");
+}
+
+.Todo {
+    margin: 1.6rem;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.container {
+    background: var(--bg-color-desaturated);
+    border-radius: .4rem;
+    box-shadow: 0 2px 1.8rem rgba(0, 0, 0, 0.15);
+}
+
+/* CHECKBOX ================== */
+.checkbox {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    margin: .8rem 1.8rem;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+}
+
+.checkbox:hover {
+    background: linear-gradient(var(--bg-color-desaturated), var(--bg-color-desaturated)) padding-box,
+    var(--check-background) border-box;
+    border: 1px solid transparent;
+    transition: 200ms;
+}
+
+input:checked ~ .checkbox {
+    background-image: var(--check-background);
+}
+
+input:checked ~ .checkbox:after {
+    display: block;
+}
+
+input:not(:checked) ~ .checkbox:after {
+    display: none;
+}
+
+.checkbox:after {
+    content: url("./assets/icon-check.svg");
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 450px) {
+    body {
+        background-image: url("./assets/bg-mobile-dark.jpg");
+    }
+
+    body.light {
+        background-image: url("./assets/bg-mobile-light.jpg");
+    }
+}

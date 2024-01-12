@@ -1,0 +1,59 @@
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 1.4rem 1.8rem;
+    color: var(--font-color-second);
+    font-size: 1.4rem;
+}
+
+.options .counter:hover {
+    transition: 200ms;
+    color: var(--font-color-second-hover);
+}
+
+.options .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options input[type="radio"] {
+    display: none;
+}
+
+.options input[type="radio"]:checked + span {
+    color: var(--bright-blue);
+}
+
+.options .filter {
+    cursor: pointer;
+    padding: .8rem;
+}
+
+.options .filter:hover {
+    transition: color 200ms;
+    color: var(--font-color-hover);
+}
+
+.options .btn-clear {
+    background: transparent;
+    border: none;
+    padding: .4rem .4rem;
+    color: inherit;
+    cursor: pointer;
+    justify-self: right;
+}
+
+.options .btn-clear:hover {
+    transition: 200ms;
+    color: var(--font-color-hover);
+}
+
+@media screen and (max-width: 365px) {
+    .options .filters {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+}

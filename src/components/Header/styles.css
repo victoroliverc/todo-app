@@ -1,0 +1,38 @@
+header {
+    margin-bottom: 2.4rem;
+    position: relative;
+    height: fit-content;
+}
+
+header h1 {
+    color: var(--font-color-hover);
+    font-size: 3.6rem;
+    letter-spacing: 1.2rem;
+    color: #f3f3f3;
+}
+
+header h1, .filter {
+    user-select: none;
+}
+
+header .theme-checkbox {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto 0;
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header label input:checked ~ .theme-checkbox {
+    background-image: url("../../assets/icon-moon.svg");
+}
+
+header label input:not(:checked) ~ .theme-checkbox {
+    background-image: url("../../assets/icon-sun.svg");
+}
