@@ -6,6 +6,7 @@ A Frontend Mentor's challenge
 - [x] Task counter
 - [x] Filters
 - [x] Drag and drop
+- [x] Theme toggle
 
 ## Link
 
