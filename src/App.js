@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Header, Form, TaskBoard, Options } from "./components/index.js";
+import { DragDropContext } from "react-beautiful-dnd";
+import { Header, Form, Board, Options } from "./components/index.js";
 import Task from "./classes/Task.js";
 
 function Todo() {
@@ -84,22 +85,39 @@ function Todo() {
     setIsDark(!isDark);
   }
 
+  function handleDragEnd(result) {
+    const { source, destination } = result;
+
+    if (!destination) return;
+
+    const srcIndex = source.index;
+    const destIndex = destination.index;
+    const reorderedTasks = tasks.slice();
+
+    reorderedTasks.splice(destIndex, 0, reorderedTasks.splice(srcIndex, 1)[0]);
+    setTasks(reorderedTasks);
+    localStorage.setItem("tasks", JSON.stringify(reorderedTasks));
+  }
+
   return (
     <div className="Todo" data-theme={isDark ? "dark" : "light"}>
-      <Header onChangeTheme={handleChangeTheme} />
-      <Form onAddTask={handleAddTask} />
-      <div className="container">
-        <TaskBoard
-          tasks={filteredTasks}
-          onCheck={handleCheck}
-          onDelete={handleDelete}
-        />
-        <Options
-          counter={counter}
-          setFilter={setFilter}
-          onClear={handleClear}
-        />
-      </div>
+      <DragDropContext onDragEnd={(result) => handleDragEnd(result)}>
+        <Header onChangeTheme={handleChangeTheme} />
+        <Form onAddTask={handleAddTask} />
+        <div className="container">
+          <Board
+            tasks={filteredTasks}
+            onCheck={handleCheck}
+            onDelete={handleDelete}
+          />
+          <Options
+            counter={counter}
+            setFilter={setFilter}
+            onClear={handleClear}
+          />
+        </div>
+      </DragDropContext>
+      <span class="dnd">Drag and drop to reorder list</span>
     </div>
   );
 }

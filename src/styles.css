@@ -121,6 +121,13 @@ input:not(:checked) ~ .checkbox:after {
     transform: translate(-50%, -50%);
 }
 
+.dnd {
+    text-align: center;
+    color: var(--font-color-second-hover);
+    font-size: 1.4rem;
+    margin-top: 1.6rem;
+}
+
 @media screen and (max-width: 450px) {
     body {
         background-image: url("./assets/bg-mobile-dark.jpg");

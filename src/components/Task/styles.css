@@ -6,6 +6,7 @@
     padding: .8rem 0;
     color: var(--font-color);
     border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-color-desaturated);
 }
 
 .task > div {
